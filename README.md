@@ -1,7 +1,7 @@
 # WEBT | CORE | Working with JSON Server Responses in JavaScript
 
 ## Overview
-The WIFI Vienna wants to help people who are unsatisfied with their job to choose a random new career path. They require an application which lets you define certain parameters and then presents users of the WebApp with a random job and details on training for it.
+The wedding company "Lords of the Rings" would like to make it easier for customers planning a wedding to choose a registry office. Under the motto "Happy choice", it should be possible for customers to be suggested a random registry office in Vienna.
 
 ## User Story 1
 *As a Developer I want to create a proof of concept for an Asynchronous JavaScript (AJAX) request, so that I can continue development based on the prototype.*
@@ -19,20 +19,22 @@ The WIFI Vienna wants to help people who are unsatisfied with their job to choos
 - The full dataset is displayed on the page or console to ensure integrity
 
 ## User Story 3
-*As a Customer I want to push a “Get random Career” button and receive a suggestion for my next job, so that I can restructure my life based on the luck of the draw.*
+*As a Customer I want to push a “Get random wedding location” button and receive a suggestion for my wedding location based on the luck of the draw.*
 
 ### Acceptance Criteria
-- A random entry is picked from an existing array/list of jobs
-- The job is displayed on the page
+- A random entry is picked from an existing array/list of wedding locations
+- The wedding location is displayed on the page
 - The page uses a responsive framework
 
 ## User Story 4
-*As a Customer I want to have a single job displayed on the screen prominently, featuring title, place of work and description, so that I can identify the relevant information quickly.*
+*As a Customer I want to have a single wedding location displayed on the screen prominently, featuring title, place of work and description, so that I can identify the relevant information quickly.*
 
 ### Acceptance Criteria
-- A single job entry is displayed on the page
+- A single wedding location entry is displayed on the page
 - The page is responsive
 - The page follows the heuristics for user interface design of Jakob Nielsen
 
 #### Links
 https://my.skilldisplay.eu/en/skillset/83
+https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:TRAUMHOCHZEITOGD&srsName=EPSG:4326&outputFormat=json
+
