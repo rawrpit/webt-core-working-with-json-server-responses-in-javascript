@@ -35,7 +35,7 @@ The wedding company "Lords of the Rings" would like to make it easier for custom
 - The page follows the heuristics for user interface design of Jakob Nielsen
 
 ## User Story 5 (optional)
-*As a customer of "Happy choice", I would like a street map (e.g. Google or Open Street Map) to be output with the result so that my relatives and friends can plan their journey.
+As a customer of "Happy choice", I would like a street map (e.g. Google or Open Street Map) to be output with the result so that my relatives and friends can plan their journey.
 
 ### Acceptance Criteria
 - An external service for displaying a street map is integrated
