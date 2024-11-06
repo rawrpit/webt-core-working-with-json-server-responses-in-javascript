@@ -15,7 +15,7 @@ The wedding company "Lords of the Rings" would like to make it easier for custom
 *As a Developer I want to fetch all data from the client's service and display it on the page or console, so that I can later choose random data from the available information.*
 
 ### Acceptance Criteria
-- The JavaScript “fetch” function is used to fetch the client's data from http://opendata.wifi.at/OpenJsonData.json
+- The JavaScript “fetch” function is used to fetch the client's data from https://data.wien.gv.at/daten/geoservice=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:TRAUMHOCHZEITOGD&srsName=EPSG:4326&outputFormat=json
 - The full dataset is displayed on the page or console to ensure integrity
 
 ## User Story 3
