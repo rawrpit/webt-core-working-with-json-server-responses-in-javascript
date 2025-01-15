@@ -1,54 +1,73 @@
-//story 1
-document.addEventListener('DOMContentLoaded', () => {
+// Story 1
+document.addEventListener('DOMContentLoaded', function () {
     fetch('https://jsonplaceholder.typicode.com/todos/1')
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById('output').innerText = JSON.stringify(data, null, 2);
+        .then(function (response) {
+            return response.json();
         })
-        .catch(error => console.error('Error fetching data:', error));
+        .then(function (data) {
+            var formattedData = 'ID: ' + data.id + '\nTitle: ' + data.title + '\nCompleted: ' + data.completed;
+            document.getElementById('output').innerText = formattedData;
+        })
+        .catch(function (error) {
+            console.error('Error fetching data:', error);
+        });
 });
 
-
-//story 2
+// Story 2
 fetch('https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:TRAUMHOCHZEITOGD&srsName=EPSG:4326&outputFormat=json')
-    .then(response => response.json())
-    .then(data => {
-        console.log(data);
-        document.getElementById('output').innerText = JSON.stringify(data, null, 2);
+    .then(function (response) {
+        return response.json();
     })
-    .catch(error => console.error('Error fetching dataset:', error));
+    .then(function (data) {
+        var formattedData = '';
+        data.features.forEach(function (feature, index) {
+            formattedData += 'Feature ' + (index + 1) + ':\nLocation: ' + feature.properties.LOCATION + '\n\n';
+        });
+        document.getElementById('output').innerText = formattedData;
+    })
+    .catch(function (error) {
+        console.error('Error fetching dataset:', error);
+    });
 
-
-//story 3
-document.getElementById('randomButton').addEventListener('click', () => {
+// Story 3
+document.getElementById('randomButton').addEventListener('click', function () {
     fetch('https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:TRAUMHOCHZEITOGD&srsName=EPSG:4326&outputFormat=json')
-        .then(response => response.json())
-        .then(data => {
-            const locations = data.features;
-            const randomLocation = locations[Math.floor(Math.random() * locations.length)];
-            document.getElementById('location').innerText = JSON.stringify(randomLocation.properties, null, 2);
+        .then(function (response) {
+            return response.json();
         })
-        .catch(error => console.error('Error fetching data:', error));
+        .then(function (data) {
+            var locations = data.features;
+            var randomLocation = locations[Math.floor(Math.random() * locations.length)];
+            var props = randomLocation.properties;
+            var formattedLocation = 'Location: ' + (props.LOCATION || 'Not available') +
+                '\nAddress: ' + (props.ADRESSE || 'Not available') +
+                '\nPhone: ' + (props.TELEFONNUMMER || 'Not available');
+            document.getElementById('location').innerText = formattedLocation;
+        })
+        .catch(function (error) {
+            console.error('Error fetching data:', error);
+        });
 });
 
-
-//story 4
-document.getElementById('randomButton').addEventListener('click', () => {
+// Story 4
+document.getElementById('randomButton').addEventListener('click', function () {
     fetch('https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:TRAUMHOCHZEITOGD&srsName=EPSG:4326&outputFormat=json')
-        .then(response => response.json())
-        .then(data => {
-            const locations = data.features;
-
-            // Wähle einen zufälligen Ort aus
-            const randomLocation = locations[Math.floor(Math.random() * locations.length)];
-            const props = randomLocation.properties;
-
-            // Setze die Werte in den HTML-Elementen
-            document.getElementById('title').innerText = props.LOCATION || 'Location not available';
-            document.getElementById('address').innerText = `Address: ${props.ADRESSE || 'Not available'}`;
-            document.getElementById('phone').innerText = `Phone: ${props.TELEFONNUMMER || 'Not available'}`;
-            document.getElementById('email').innerText = `Email: ${props.EMAIL || 'Not available'}`;
-            document.getElementById('website').innerText = `Website: ${props.WEBLINK1 || 'Not available'}`;
+        .then(function (response) {
+            return response.json();
         })
-        .catch(error => console.error('Error fetching data:', error));
+        .then(function (data) {
+            var locations = data.features;
+            var randomLocation = locations[Math.floor(Math.random() * locations.length)];
+            var props = randomLocation.properties;
+
+            // Werte in HTML-Elemente setzen
+            document.getElementById('title').innerText = props.LOCATION || 'Location not available';
+            document.getElementById('address').innerText = 'Address: ' + (props.ADRESSE || 'Not available');
+            document.getElementById('phone').innerText = 'Phone: ' + (props.TELEFONNUMMER || 'Not available');
+            document.getElementById('email').innerText = 'Email: ' + (props.EMAIL || 'Not available');
+            document.getElementById('website').innerText = 'Website: ' + (props.WEBLINK1 || 'Not available');
+        })
+        .catch(function (error) {
+            console.error('Error fetching data:', error);
+        });
 });
