@@ -5,11 +5,11 @@ document.addEventListener('DOMContentLoaded', function () {
             return response.json();
         })
         .then(function (data) {
-            var formattedData = 'ID: ' + data.id + '\nTitle: ' + data.title + '\nCompleted: ' + data.completed;
-            document.getElementById('output').innerText = formattedData;
+            var formatedData = 'ID: ' + data.id + '\nTitle: ' + data.title + '\nCompleted: ' + data.completed;
+            document.getElementById('output').innerText = formatedData;
         })
         .catch(function (error) {
-            console.error('Error fetching data:', error);
+            console.error(error);
         });
 });
 
@@ -19,14 +19,14 @@ fetch('https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=
         return response.json();
     })
     .then(function (data) {
-        var formattedData = '';
+        var formatedData = '';
         data.features.forEach(function (feature, index) {
-            formattedData += 'Feature ' + (index + 1) + ':\nLocation: ' + feature.properties.LOCATION + '\n\n';
+            formatedData += 'Feature ' + (index + 1) + ':\nLocation: ' + feature.properties.LOCATION + '\n\n';
         });
-        document.getElementById('output').innerText = formattedData;
+        document.getElementById('output').innerText = formatedData;
     })
     .catch(function (error) {
-        console.error('Error fetching dataset:', error);
+        console.error(error);
     });
 
 // Story 3
@@ -60,7 +60,6 @@ document.getElementById('randomButton').addEventListener('click', function () {
             var randomLocation = locations[Math.floor(Math.random() * locations.length)];
             var props = randomLocation.properties;
 
-            // Werte in HTML-Elemente setzen
             document.getElementById('title').innerText = props.LOCATION || 'Location not available';
             document.getElementById('address').innerText = 'Address: ' + (props.ADRESSE || 'Not available');
             document.getElementById('phone').innerText = 'Phone: ' + (props.TELEFONNUMMER || 'Not available');
