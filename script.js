@@ -1,4 +1,5 @@
 // Story 1
+/*
 document.addEventListener('DOMContentLoaded', function () {
     fetch('https://jsonplaceholder.typicode.com/todos/1')
         .then(function (response) {
@@ -48,6 +49,8 @@ document.getElementById('randomButton').addEventListener('click', function () {
             console.error('Error fetching data:', error);
         });
 });
+
+*/
 
 // Story 4
 document.getElementById('randomButton').addEventListener('click', function () {
